@@ -17,9 +17,8 @@ class MCP3204_MCP3208 {
     uint8_t csPin;
     uint8_t channelCount;
 public:
-    MCP3204_MCP3208(uint8_t channelCount, uint8_t csPin);
 
-    MCP3204_MCP3208(uint8_t channelCount, uint8_t csPin, uint8_t sckPin, uint8_t mosiPin, uint8_t misoPin);
+    MCP3204_MCP3208(uint8_t channelCount, uint8_t csPin, uint8_t sckPin = PIN_SPI_SCK, uint8_t mosiPin = PIN_SPI_MOSI, uint8_t misoPin = PIN_SPI_MISO);
 
     uint16_t readChannel(uint8_t channel);
 

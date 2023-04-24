@@ -6,20 +6,6 @@
 #include "SPI.h"
 #include "MCP3204_MCP3208.h"
 
-MCP3204_MCP3208::MCP3204_MCP3208(uint8_t channelCount, uint8_t csPin) {
-    this->channelCount = channelCount;
-    this->csPin = csPin;
-    pinMode(csPin, OUTPUT);
-    digitalWrite(csPin, HIGH);
-#if defined(ARDUINO_RASPBERRY_PI_PICO)
-    spi = new MbedSPI(PIN_SPI_MISO, PIN_SPI_MOSI, PIN_SPI_SCK);
-#else
-    spi = new SPIClass();
-#endif
-
-    spi->begin();
-
-}
 
 MCP3204_MCP3208::MCP3204_MCP3208(uint8_t channelCount, uint8_t csPin, uint8_t sckPin, uint8_t mosiPin,
                                  uint8_t misoPin) {
